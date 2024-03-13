@@ -57,7 +57,7 @@ int main()
     LeerDescuentos(descuentos);
     LeerDescuentosClientes(descuentosClientes);
 
-    do {
+//    do {
         // El usuario inicia sesion o se registra en el sistema
         menu_inicial(&n_clientes, n_adminprov, n_transportistas, &clientes, adminProv, transportistas, &tipo_usuario,
                     usuario_actual, &posicion_vector, &atras);

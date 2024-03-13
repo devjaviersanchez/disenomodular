@@ -33,3 +33,25 @@
 	<string.h>
 	"datos.h"
 
+1710326493 source:c:\users\diego\desktop\disenomodular\datos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"datos.h"
+
+1710320386 c:\users\diego\desktop\disenomodular\datos.h
+
+1709724403 source:c:\users\diego\desktop\disenomodular\logistica.c
+
+1710341247 source:c:\users\diego\desktop\disenomodular\perfiles.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datos.h"
+	"perfiles.h"
+
+1710340985 c:\users\diego\desktop\disenomodular\perfiles.h
+
+1709724451 source:c:\users\diego\desktop\disenomodular\ventas.c
+
