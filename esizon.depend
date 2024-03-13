@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1709724403 source:c:\users\diego\desktop\mp\practicas\esizon 2024\logistica.c
+
+1710341247 source:c:\users\diego\desktop\mp\practicas\esizon 2024\perfiles.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datos.h"
+	"perfiles.h"
+
+1709724451 source:c:\users\diego\desktop\mp\practicas\esizon 2024\ventas.c
+
+1710340997 source:c:\users\diego\desktop\mp\practicas\esizon 2024\main.c
+	<stdio.h>
+	<stdlib.h>
+	"datos.h"
+	"logistica.h"
+	"perfiles.h"
+	"ventas.h"
+
+1710320386 c:\users\diego\desktop\mp\practicas\esizon 2024\datos.h
+
+1709724414 c:\users\diego\desktop\mp\practicas\esizon 2024\logistica.h
+
+1710340985 c:\users\diego\desktop\mp\practicas\esizon 2024\perfiles.h
+
+1709724465 c:\users\diego\desktop\mp\practicas\esizon 2024\ventas.h
+
+1710326493 source:c:\users\diego\desktop\mp\practicas\esizon 2024\datos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"datos.h"
+
