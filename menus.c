@@ -60,6 +60,7 @@ void menu_inicial(int *n_c,int n_a,int n_t,Cliente **clt, AdminProv *adm,
                         case 4:
                             printf("\n\t\t\t Bienvenido %s ,transportista, %i: \n\n\n\n",name_user,*pos_vector+1);
                             break;
+
                     }
                 }
                 break;
@@ -102,6 +103,14 @@ void iniciar_sesion(int n_c, int n_a, int n_t, Cliente *c, AdminProv *a, Transpo
             *tipo=1;
             *pos=i;
         }
+    }
+
+    if(*tipo != 1 || aux == 0){
+        puts("////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+        printf("\t\t\t\t\t Usuario o contrasena incorrectos \t\t\t\n");
+        puts("////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+        system("pause");
+
     }
 
     // ADMINISTRADOR

@@ -67,7 +67,7 @@ int main()
     do {
         // El usuario inicia sesion o se registra en el sistema
         menu_inicial(&n_clientes, n_adminprov, n_transportistas, &clientes, adminProv, transportistas, &tipo_usuario,
-                    usuario_actual, &posicion_vector, &atras);
+                        usuario_actual, &posicion_vector, &atras);
 
         // Una vez que el usuario ha iniciado sesion, accede al menu correspondiente a su rol
         switch(tipo_usuario) {

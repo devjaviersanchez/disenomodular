@@ -134,3 +134,138 @@
 	"pedidos.h"
 	"lectura.h"
 
+1710934446 source:c:\users\saanc\documents\github\disenomodular\adminprov.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"adminprov.h"
+	"lectura.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\adminprov.h
+
+1710934446 c:\users\saanc\documents\github\disenomodular\lectura.h
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\categorias.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"categorias.h"
+	"lectura.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\categorias.h
+
+1710946935 source:c:\users\saanc\documents\github\disenomodular\clientes.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"clientes.h"
+	"lectura.h"
+
+1710946935 c:\users\saanc\documents\github\disenomodular\clientes.h
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\descuentos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"descuentos.h"
+	"lectura.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\descuentos.h
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\devoluciones.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"devoluciones.h"
+	"lectura.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\devoluciones.h
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\lectura.c
+	<stdio.h>
+	<stdlib.h>
+	"lectura.h"
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\lockers.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"lockers.h"
+	"lectura.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\lockers.h
+
+1710951277 source:c:\users\saanc\documents\github\disenomodular\main.c
+	<stdio.h>
+	<stdlib.h>
+	"adminprov.h"
+	"categorias.h"
+	"clientes.h"
+	"descuentos.h"
+	"devoluciones.h"
+	"lockers.h"
+	"menus.h"
+	"pedidos.h"
+	"productos.h"
+	"transportistas.h"
+	"lectura.h"
+
+1710946935 c:\users\saanc\documents\github\disenomodular\menus.h
+	"clientes.h"
+	"productos.h"
+	"categorias.h"
+	"descuentos.h"
+	"pedidos.h"
+	"lockers.h"
+	"devoluciones.h"
+	"transportistas.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\productos.h
+	"adminprov.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\pedidos.h
+	"adminprov.h"
+
+1710934446 c:\users\saanc\documents\github\disenomodular\transportistas.h
+
+1710946935 source:c:\users\saanc\documents\github\disenomodular\menus.c
+	<stdio.h>
+	"menus.h"
+	"clientes.h"
+	"productos.h"
+	"categorias.h"
+	"descuentos.h"
+	"pedidos.h"
+	"lockers.h"
+	"devoluciones.h"
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\pedidos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"pedidos.h"
+	"lectura.h"
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\productos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"productos.h"
+	"lectura.h"
+
+1710934446 source:c:\users\saanc\documents\github\disenomodular\transportistas.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"transportistas.h"
+	"lectura.h"
+
