@@ -64,30 +64,29 @@ int main()
     LeerDescuentos(descuentos);
     LeerDescuentosClientes(descuentosClientes);
 
-    //do {
+    do {
         // El usuario inicia sesion o se registra en el sistema
-        //menu_inicial(&n_clientes, n_adminprov, n_transportistas, &clientes, adminProv, transportistas, &tipo_usuario,
-          //          usuario_actual, &posicion_vector, &atras);
-
+        menu_inicial(&n_clientes, n_adminprov, n_transportistas, &clientes, adminProv, transportistas, &tipo_usuario,
+                    usuario_actual, &posicion_vector, &atras);
 
         // Una vez que el usuario ha iniciado sesion, accede al menu correspondiente a su rol
-//        switch(tipo_usuario) {
-//            case 1: menu_clientes(clientes, productos, categorias, descuentosClientes,pedidos,lockers,
-//                                  compartimentosLockers,devoluciones,productospedidos,descuentos,
-//                                  &n_clientes,n_productos,n_categorias,posicion_vector,n_descuentosclientes,
-//                                  n_devoluciones,n_productospedidos,n_pedidos,n_descuentos,n_lockers);break;
-//            case 2: menu_administrador(&clientes,&adminprov,&productospedidos,&productos,&categorias,
-//                                       &transportistas,&pedidos,&descuentos,&descuentosclientes,&n_descuentosclientes,
-//                                       &n_descuentos,&n_pedidos,&n_productospedidos,&n_clientes,&n_productos,
-//                                       &n_adminprov,&n_transportistas,n_categorias,posicion_vector);break;
-//            case 3: menu_proveedores(adminprov,categorias,&productos,pedidos,lockers,transportistas,
-//                                     &n_adminprov,&n_productos,n_pedidos,n_lockers,n_transportistas,
-//                                     n_categorias,posicion_vector);break;
-//            case 4: menu_transportista(transportistas,productos,productospedidos,lockers,pedidos,compartimentoslockers,
-//                                       n_transportistas,n_productos,n_productospedidos,n_lockers,n_pedidos,
-//                                       n_compartimentoslockers,posicion_vector);break;
-//        }
-    // } while(atras!=3);
+        switch(tipo_usuario) {
+            case 1: menu_clientes(clientes, productos, categorias, descuentosClientes,pedidos,lockers,
+                                  compartimentosLockers,devoluciones,productosPedidos,descuentos,
+                                  &n_clientes,n_productos,n_categorias,posicion_vector,n_descuentosclientes,
+                                  n_devoluciones,n_productospedidos,n_pedidos,n_descuentos,n_lockers);break;
+            case 2: /*menu_administrador(&clientes,&adminprov,&productospedidos,&productos,&categorias,
+                                       &transportistas,&pedidos,&descuentos,&descuentosclientes,&n_descuentosclientes,
+                                       &n_descuentos,&n_pedidos,&n_productospedidos,&n_clientes,&n_productos,
+                                       &n_adminprov,&n_transportistas,n_categorias,posicion_vector);*/break;
+            case 3: /*menu_proveedores(adminprov,categorias,&productos,pedidos,lockers,transportistas,
+                                     &n_adminprov,&n_productos,n_pedidos,n_lockers,n_transportistas,
+                                     n_categorias,posicion_vector);*/break;
+            case 4: /*menu_transportista(transportistas,productos,productospedidos,lockers,pedidos,compartimentoslockers,
+                                       n_transportistas,n_productos,n_productospedidos,n_lockers,n_pedidos,
+                                       n_compartimentoslockers,posicion_vector);*/break;
+        }
+    } while(atras!=3);
 
     // Funciones usadas durante el desarrollo para comprobar que la lectura de ficheros es correcta
     // MostrarClientes(clientes  ,n_clientes);

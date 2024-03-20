@@ -60,3 +60,49 @@ void MostrarClientes(Cliente *clientes,int n_clientes){
 		printf("\n");
 	}
 }
+
+void Alta_Cliente(Cliente*clientes,int *n_clientes){
+
+    int i=*n_clientes,id;
+
+    printf("\n\t Introduzca los siguientes datos: \n");
+
+    // Con la funcion Buscar_Cliente comprobamos que el id es válido
+    //do{
+        printf("\n\t\t Introduzca el id del cliente: ");
+        fflush(stdin);
+        scanf("%d",&id);
+    //} while(Buscar_Cliente(clientes,*n_clientes,id) != 0);
+
+    clientes[i].id_cliente = id;
+
+    printf("\n\t\t Nombre: ");
+    fflush(stdin);
+    gets(clientes[i].nomb_cliente);
+
+    printf("\n\t\t Direccion: ");
+    fflush(stdin);
+    gets(clientes[i].dir_cliente);
+
+    printf("\n\t\t Localidad: ");
+    fflush(stdin);
+    gets(clientes[i].localidad);
+
+    printf("\n\t\t Provincia: ");
+    fflush(stdin);
+    gets(clientes[i].provincia);
+
+    printf("\n\t\t Email: ");
+    fflush(stdin);
+    gets(clientes[i].email);
+
+    printf("\n\t\t Password: ");
+    fflush(stdin);
+    gets(clientes[i].contrasena);
+
+    clientes[i].cartera=0;
+
+    *n_clientes=i+1;
+
+    system("cls");
+}

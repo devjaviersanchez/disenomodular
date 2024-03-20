@@ -11,7 +11,7 @@
 
 1710928095 c:\users\diego\desktop\esizon\esizon\lectura.h
 
-1710928791 source:c:\users\diego\desktop\esizon\esizon\clientes.c
+1710933629 source:c:\users\diego\desktop\esizon\esizon\clientes.c
 	<stdio.h>
 	<math.h>
 	<stdlib.h>
@@ -19,7 +19,7 @@
 	"clientes.h"
 	"lectura.h"
 
-1710927323 c:\users\diego\desktop\esizon\esizon\clientes.h
+1710932945 c:\users\diego\desktop\esizon\esizon\clientes.h
 
 1710928569 source:c:\users\diego\desktop\esizon\esizon\descuentos.c
 	<stdio.h>
@@ -66,7 +66,16 @@
 
 1710929326 c:\users\diego\desktop\esizon\esizon\categorias.h
 
-1710924944 source:c:\users\diego\desktop\esizon\esizon\menus.c
+1710934151 source:c:\users\diego\desktop\esizon\esizon\menus.c
+	<stdio.h>
+	"menus.h"
+	"clientes.h"
+	"productos.h"
+	"categorias.h"
+	"descuentos.h"
+	"pedidos.h"
+	"lockers.h"
+	"devoluciones.h"
 
 1710929806 source:c:\users\diego\desktop\esizon\esizon\transportistas.c
 	<stdio.h>
@@ -78,7 +87,7 @@
 
 1710927353 c:\users\diego\desktop\esizon\esizon\transportistas.h
 
-1710929531 source:c:\users\diego\desktop\esizon\esizon\main.c
+1710934003 source:c:\users\diego\desktop\esizon\esizon\main.c
 	<stdio.h>
 	<stdlib.h>
 	"adminprov.h"
@@ -93,7 +102,15 @@
 	"transportistas.h"
 	"lectura.h"
 
-1710929396 c:\users\diego\desktop\esizon\esizon\menus.h
+1710932253 c:\users\diego\desktop\esizon\esizon\menus.h
+	"clientes.h"
+	"productos.h"
+	"categorias.h"
+	"descuentos.h"
+	"pedidos.h"
+	"lockers.h"
+	"devoluciones.h"
+	"transportistas.h"
 
 1710929480 c:\users\diego\desktop\esizon\esizon\pedidos.h
 	"adminprov.h"

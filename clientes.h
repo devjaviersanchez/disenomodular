@@ -27,4 +27,9 @@ void EscribirClientes(Cliente*,int);
 //Postcondicion: muestra los clientes
 void MostrarClientes(Cliente *,int );
 
+//Cabecera:void Alta_Cliente(Cliente*,int*);
+//Precondicion: Cliente y variable inicializadas.
+//Postcondicion: anade un cliente a la estructura Cliente.
+void Alta_Cliente(Cliente*, int*);
+
 #endif
