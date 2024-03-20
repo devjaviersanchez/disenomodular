@@ -1,57 +1,119 @@
 # depslib dependency file v1.0
-1709724403 source:c:\users\diego\desktop\mp\practicas\esizon 2024\logistica.c
-
-1710341247 source:c:\users\diego\desktop\mp\practicas\esizon 2024\perfiles.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"datos.h"
-	"perfiles.h"
-
-1709724451 source:c:\users\diego\desktop\mp\practicas\esizon 2024\ventas.c
-
-1710340997 source:c:\users\diego\desktop\mp\practicas\esizon 2024\main.c
-	<stdio.h>
-	<stdlib.h>
-	"datos.h"
-	"logistica.h"
-	"perfiles.h"
-	"ventas.h"
-
-1710320386 c:\users\diego\desktop\mp\practicas\esizon 2024\datos.h
-
-1709724414 c:\users\diego\desktop\mp\practicas\esizon 2024\logistica.h
-
-1710340985 c:\users\diego\desktop\mp\practicas\esizon 2024\perfiles.h
-
-1709724465 c:\users\diego\desktop\mp\practicas\esizon 2024\ventas.h
-
-1710326493 source:c:\users\diego\desktop\mp\practicas\esizon 2024\datos.c
+1710928205 source:c:\users\diego\desktop\esizon\esizon\adminprov.c
 	<stdio.h>
 	<math.h>
 	<stdlib.h>
 	<string.h>
-	"datos.h"
+	"adminprov.h"
+	"lectura.h"
 
-1710326493 source:c:\users\diego\desktop\disenomodular\datos.c
+1710928309 c:\users\diego\desktop\esizon\esizon\adminprov.h
+
+1710928095 c:\users\diego\desktop\esizon\esizon\lectura.h
+
+1710928791 source:c:\users\diego\desktop\esizon\esizon\clientes.c
 	<stdio.h>
 	<math.h>
 	<stdlib.h>
 	<string.h>
-	"datos.h"
+	"clientes.h"
+	"lectura.h"
 
-1710320386 c:\users\diego\desktop\disenomodular\datos.h
+1710927323 c:\users\diego\desktop\esizon\esizon\clientes.h
 
-1709724403 source:c:\users\diego\desktop\disenomodular\logistica.c
-
-1710341247 source:c:\users\diego\desktop\disenomodular\perfiles.c
+1710928569 source:c:\users\diego\desktop\esizon\esizon\descuentos.c
 	<stdio.h>
+	<math.h>
 	<stdlib.h>
 	<string.h>
-	"datos.h"
-	"perfiles.h"
+	"descuentos.h"
+	"lectura.h"
 
-1710340985 c:\users\diego\desktop\disenomodular\perfiles.h
+1710927664 c:\users\diego\desktop\esizon\esizon\descuentos.h
 
-1709724451 source:c:\users\diego\desktop\disenomodular\ventas.c
+1710928565 source:c:\users\diego\desktop\esizon\esizon\devoluciones.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"devoluciones.h"
+	"lectura.h"
+
+1710927741 c:\users\diego\desktop\esizon\esizon\devoluciones.h
+
+1710926469 source:c:\users\diego\desktop\esizon\esizon\lectura.c
+	<stdio.h>
+	<stdlib.h>
+	"lectura.h"
+
+1710929651 source:c:\users\diego\desktop\esizon\esizon\lockers.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"lockers.h"
+	"lectura.h"
+
+1710927684 c:\users\diego\desktop\esizon\esizon\lockers.h
+
+1710928579 source:c:\users\diego\desktop\esizon\esizon\categorias.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"categorias.h"
+	"lectura.h"
+
+1710929326 c:\users\diego\desktop\esizon\esizon\categorias.h
+
+1710924944 source:c:\users\diego\desktop\esizon\esizon\menus.c
+
+1710929806 source:c:\users\diego\desktop\esizon\esizon\transportistas.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"transportistas.h"
+	"lectura.h"
+
+1710927353 c:\users\diego\desktop\esizon\esizon\transportistas.h
+
+1710929531 source:c:\users\diego\desktop\esizon\esizon\main.c
+	<stdio.h>
+	<stdlib.h>
+	"adminprov.h"
+	"categorias.h"
+	"clientes.h"
+	"descuentos.h"
+	"devoluciones.h"
+	"lockers.h"
+	"menus.h"
+	"pedidos.h"
+	"productos.h"
+	"transportistas.h"
+	"lectura.h"
+
+1710929396 c:\users\diego\desktop\esizon\esizon\menus.h
+
+1710929480 c:\users\diego\desktop\esizon\esizon\pedidos.h
+	"adminprov.h"
+
+1710929469 c:\users\diego\desktop\esizon\esizon\productos.h
+	"adminprov.h"
+
+1710929745 source:c:\users\diego\desktop\esizon\esizon\productos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"productos.h"
+	"lectura.h"
+
+1710929713 source:c:\users\diego\desktop\esizon\esizon\pedidos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"pedidos.h"
+	"lectura.h"
 

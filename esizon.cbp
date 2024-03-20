@@ -31,27 +31,53 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="datos.c">
+		<Unit filename="adminprov.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="datos.h" />
-		<Unit filename="logistica.c">
+		<Unit filename="adminprov.h" />
+		<Unit filename="categorias.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="logistica.h" />
+		<Unit filename="categorias.h" />
+		<Unit filename="clientes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="clientes.h" />
+		<Unit filename="descuentos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="descuentos.h" />
+		<Unit filename="devoluciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="devoluciones.h" />
+		<Unit filename="lectura.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lectura.h" />
+		<Unit filename="lockers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lockers.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="perfiles.c">
+		<Unit filename="menus.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="perfiles.h" />
-		<Unit filename="ventas.c">
+		<Unit filename="menus.h" />
+		<Unit filename="pedidos.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="ventas.h" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
+		<Unit filename="pedidos.h" />
+		<Unit filename="productos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="productos.h" />
+		<Unit filename="transportistas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="transportistas.h" />
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

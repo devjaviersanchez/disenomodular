@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "datos.h"
-#include "logistica.h"
-#include "perfiles.h"
-#include "ventas.h"
+#include "adminprov.h"
+#include "categorias.h"
+#include "clientes.h"
+#include "descuentos.h"
+#include "devoluciones.h"
+#include "lockers.h"
+#include "menus.h"
+#include "pedidos.h"
+#include "productos.h"
+#include "transportistas.h"
+#include "lectura.h"
 
 int main()
 {
@@ -15,7 +22,7 @@ int main()
     char usuario_actual[20];
 
     // Comprobamos el numero de elementos que contiene cada fichero
-    // Esta información es necesaria para reservar memoria a continuación
+    // Esta informacion es necesaria para reservar memoria a continuacion
     int n_clientes = LineasFichero("Clientes.txt");
     int n_adminprov = LineasFichero("AdminProv.txt");
     int n_transportistas = LineasFichero("Transportistas.txt");
@@ -43,7 +50,7 @@ int main()
     DescuentosClientes*descuentosClientes = (DescuentosClientes*)malloc(n_descuentosclientes*sizeof(DescuentosClientes));
     Devoluciones*  devoluciones = (Devoluciones*)malloc(n_devoluciones*sizeof(Devoluciones));
 
-    // Añadimos cada elemento de cada fichero en el vector correspondiente
+    // AÃ±adimos cada elemento de cada fichero en el vector correspondiente
     LeerClientes(clientes);
     LeerAdminProv(adminProv);
     LeerTransportistas(transportistas);
@@ -57,10 +64,10 @@ int main()
     LeerDescuentos(descuentos);
     LeerDescuentosClientes(descuentosClientes);
 
-//    do {
+    //do {
         // El usuario inicia sesion o se registra en el sistema
-        menu_inicial(&n_clientes, n_adminprov, n_transportistas, &clientes, adminProv, transportistas, &tipo_usuario,
-                    usuario_actual, &posicion_vector, &atras);
+        //menu_inicial(&n_clientes, n_adminprov, n_transportistas, &clientes, adminProv, transportistas, &tipo_usuario,
+          //          usuario_actual, &posicion_vector, &atras);
 
 
         // Una vez que el usuario ha iniciado sesion, accede al menu correspondiente a su rol
@@ -80,7 +87,7 @@ int main()
 //                                       n_transportistas,n_productos,n_productospedidos,n_lockers,n_pedidos,
 //                                       n_compartimentoslockers,posicion_vector);break;
 //        }
-//   } while(atras!=3);
+    // } while(atras!=3);
 
     // Funciones usadas durante el desarrollo para comprobar que la lectura de ficheros es correcta
     // MostrarClientes(clientes  ,n_clientes);

@@ -1,15 +1,5 @@
-#ifndef __PERFILES_H__
-#define __PERFILES_H__
-
-
-
-typedef struct {
-	int id_empresa;
-	char nombre[20];
-	char email[30];
-    char contrasena[15];
-    char perfil[20];
-}AdminProv;
+#ifndef __TRANSPORTISTA_H__
+#define __TRANSPORTISTA_H__
 
 typedef struct {
 	int id_transp;
@@ -20,22 +10,15 @@ typedef struct {
     char nombre_ciudad[20];
 }Transportista;
 
-//cabecera:void void LeerAdminProv(AdminProv *,int*);
-//Precondicion: adminprov.txt existe y tiene datos
-//Postcondicion: guarda los datos de adminprov.txt en adminprov
-void LeerAdminProv(AdminProv *);
-
-
 //cabecera:void LeerTransportistas(Transportista*,int*);
 //Precondicion: transportistas.txt existe y tiene datos
 //Postcondicion: guarda los datos de transportistas.txt en transportistas
 void LeerTransportistas(Transportista*);
 
-
-//cabecera:void MostrarAdminProv(AdminProv *,int )
-//Precondicion: AdminProv y n_adminprov inicializados
-//Postcondicion: muestra los adminprov
-void MostrarAdminProv(AdminProv *,int );
+//cabecera:void EscribirTransportistas(Transportistas*,int)
+//Precondicion: transportistas existe y tiene datos
+//Postcondicion: guarda los datos de transportistas en transportistas.txt
+void EscribirTransportistas(Transportista*,int);
 
 //cabecera:void MostrarTransportistas(Transportista*,int)
 //Precondicion: transportistas y n_transportistas inicializados
