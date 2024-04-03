@@ -32,4 +32,9 @@ void MostrarClientes(Cliente *,int );
 //Postcondicion: anade un cliente a la estructura Cliente.
 void Alta_Cliente(Cliente*, int*);
 
+void Baja_Cliente(Cliente*, int*, int);
+int Buscar_Cliente(Cliente*, int, int);
+void Modificar_Cliente(Cliente*, int);
+
+
 #endif

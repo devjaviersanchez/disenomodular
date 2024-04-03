@@ -113,3 +113,165 @@ void MostrarProductosPedidos(ProductosPedidos* productospedidos,int n_productosp
 		printf("\n");
 	}
 }
+
+void Alta_Pedido(Pedidos* pedidos,AdminProv* adminprov,int posicion_vector,int n_categorias,int* n_pedidos){
+
+    char s[100];
+    int i=*n_pedidos;
+
+    pedidos = (Pedidos*)realloc(pedidos, (i + 1) * sizeof(Pedidos));
+
+    pedidos[i].id_pedido=*n_pedidos+1;
+
+    printf("introduce la fecha :");
+    fflush(stdin);
+    gets(s);
+    strcpy(pedidos[i].fecha_pedido,s);
+
+
+    pedidos[i].id_cliente=0;
+
+    do{
+        printf("introduce el lugar de entrega (domicilio/locker) :");
+        fflush(stdin);
+        gets(s);
+    }while(strcmp(s,"domicilio")!=0||strcmp(s,"locker")!=0);
+
+    strcpy(pedidos[i].lugar,s);
+    strcpy(pedidos[i].id_locker,"no");
+
+    printf("introduce el codigo promocional:");
+    fflush(stdin);
+    gets(s);
+    strcpy(pedidos[i].id_cod,s);
+    *n_pedidos=i+1;
+    return pedidos;
+}
+
+// sin terminar
+void Baja_Pedido(Pedidos*pedidos,int*n_pedidos,AdminProv*adminprov,int posicion_vector){
+
+    int i=*n_pedidos,j,cont=1,x;
+
+    MostrarPedidos(pedidos,n_pedidos,adminprov,posicion_vector);
+    fflush(stdin);
+    printf("pedido: ");
+    scanf("%i",&x);
+    /*
+    Sin terminar
+    for(j=x-1;j<i;j++)
+    {
+
+        strcpy(descuentos[j].descripcion,descuentos[j+cont].descripcion);
+        descuentos[j].tipo=descuentos[j+cont].tipo;
+        descuentos[j].estado=descuentos[j+cont].estado;
+        descuentos[j].stock=descuentos[j+cont].stock;
+        descuentos[j].aplicabilidad=descuentos[j+cont].aplicabilidad;
+
+    }*/
+    *n_pedidos=i-1;
+
+    //descuentos = (Descuentos*)realloc(descuentos, (i -1) * sizeof(Descuentos));}
+    return pedidos;
+}
+
+
+void Busqueda_Pedido(Pedidos*pedidos,int n_pedidos,int opcion){
+
+    int aux=0,i,j;
+    char * x;
+
+    system("cls");
+    switch(opcion){
+        case 1 :     printf("introduce la categoria: \n\n");
+                    fflush(stdin);
+                     gets(x);
+                     i=0;
+                       /* while(i<n_categorias){
+                        if(strstr(categorias[i].descripcion,x)!=NULL){
+                            j=0;
+                            while(j<n_productos){
+                                if(productos[j].id_categoria==categorias[i].id){
+                                Consultar_Producto(productos,j);}
+                            j++;}
+                        }
+                        i++;
+                        }*/;break;
+
+        case 2 :    printf("introduce el nombre: \n\n");break;
+                    fflush(stdin);
+                    gets(x);
+                    i=0;
+                     /* while(i<n_productos){
+                            if(strstr(descuentos[i].descripcion,x)!=NULL){
+                            Consultar_Descuentos(descuentos,i);
+                            }
+                        i++;
+                        }*/;break;
+        }
+system("pause");
+}
+
+void Modificacion_Pedido(Pedidos* pedidos,AdminProv* adminprov,int n_pedidos,int posicion_vector){
+    int x;
+    system("cls");
+    MostrarPedidos(pedidos,n_pedidos,adminprov,posicion_vector);
+        fflush(stdin);
+        printf("pedido: ");
+        scanf("%i",&x);
+
+    int opcion;
+    char aux[50];
+        do{
+     Consultar_Pedido(pedidos,x-1);
+
+
+    printf("Elija la opcion que desea hacer en el menu de descuentos: \n\n");
+        printf("-> 1. modificar descripcion del descuento\n\n");
+        printf("-> 2. modificar tipo del descuento\n\n");
+        printf("-> 3. modificar estado del descuento\n\n");
+        printf("-> 4. modificar importe del descuento\n\n");
+        printf("-> 5. modificar aplicabilidad del descuento\n\n");
+        printf("-> 6. Atras\n\n");
+
+    fflush(stdin);
+    scanf("%d", &opcion);
+    switch(opcion){
+    case 1:         printf("\n\t\tIntroduce la descripcion: ");
+                    fflush(stdin);
+                    //gets(descuentos[x-1].descripcion);break;
+
+    case 2:
+                    fflush(stdin);
+                    //gets(descuentos[x-1].tipo);break;
+
+    case 3:         printf("\n\t\tIntroduce el estado: ");
+                    fflush(stdin);
+                    //gets(descuentos[x-1].estado);break;
+
+    case 4:         printf("\n\t\tIntroduce el importe: ");
+                    fflush(stdin);
+                    gets(aux);
+                   // descuentos[x-1].importe=entero(aux);break;
+
+    case 5:         printf("\n\t\tIntroduce la aplicabilidad: ");
+                    fflush(stdin);
+                   // gets(descuentos[x-1].aplicabilidad);break;
+
+}
+
+}while(opcion!=6);
+return pedidos;
+}
+
+void Consultar_Pedido(Pedidos*pedidos,int x){
+
+        printf("\n");
+		printf("Pedido: %d\n",pedidos[x].id_pedido);
+		printf("Fecha: %s\n",pedidos[x].fecha_pedido);
+		printf("Identificador del cliente: %d\n",pedidos[x].id_cliente);
+		printf("Lugar de entrega: %s\n",pedidos[x].lugar);
+		printf("Identificacion Locker: %s\n",pedidos[x].id_locker);
+		printf("Codigo promocional: %s\n",pedidos[x].id_cod);
+		printf("\n");
+}

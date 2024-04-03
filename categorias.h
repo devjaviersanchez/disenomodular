@@ -21,4 +21,14 @@ void MostrarCategorias(Categorias *,int);
 //Postcondicion: guarda los datos de categorias en categorias.txt
 void EscribirCategorias(Categorias*,int);
 
+void Alta_Categoria(Categorias*, int*);
+
+void Baja_Categoria(Categorias*, int*);
+
+void Modificacion_Categoria(Categorias*, int);
+
+int Busqueda_Categoria(Categorias*, int, int);
+
+int Busqueda_Categoria_nombre(Categorias*, int, char*);
+
 #endif

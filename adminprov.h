@@ -24,4 +24,10 @@ void MostrarAdminProv(AdminProv *,int );
 //Postcondicion: guarda los datos de adminprov en adminprov.txt
 void EscribirAdminProv(AdminProv*,int);
 
+int Buscar_AdminProv(AdminProv*, int,int);
+void Consulta_AdminProv(AdminProv*, int);
+void Alta_AdminProv(AdminProv* ,int*, char*);
+void Baja_AdminProv(AdminProv*, int*, int, char*);
+void Modificar_AdminProv(AdminProv*, int);
+
 #endif

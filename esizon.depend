@@ -134,3 +134,139 @@
 	"pedidos.h"
 	"lectura.h"
 
+1712133975 source:c:\users\diego\desktop\disenomodular\adminprov.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"adminprov.h"
+	"lectura.h"
+
+1712070439 c:\users\diego\desktop\disenomodular\adminprov.h
+
+1710931695 c:\users\diego\desktop\disenomodular\lectura.h
+
+1712072869 source:c:\users\diego\desktop\disenomodular\categorias.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"categorias.h"
+	"lectura.h"
+
+1712072678 c:\users\diego\desktop\disenomodular\categorias.h
+
+1712140843 source:c:\users\diego\desktop\disenomodular\clientes.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"clientes.h"
+	"lectura.h"
+
+1712070731 c:\users\diego\desktop\disenomodular\clientes.h
+
+1710932169 source:c:\users\diego\desktop\disenomodular\descuentos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"descuentos.h"
+	"lectura.h"
+
+1710931264 c:\users\diego\desktop\disenomodular\descuentos.h
+
+1710932165 source:c:\users\diego\desktop\disenomodular\devoluciones.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"devoluciones.h"
+	"lectura.h"
+
+1710931341 c:\users\diego\desktop\disenomodular\devoluciones.h
+
+1710930069 source:c:\users\diego\desktop\disenomodular\lectura.c
+	<stdio.h>
+	<stdlib.h>
+	"lectura.h"
+
+1710933251 source:c:\users\diego\desktop\disenomodular\lockers.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"lockers.h"
+	"lectura.h"
+
+1710931284 c:\users\diego\desktop\disenomodular\lockers.h
+
+1712135828 source:c:\users\diego\desktop\disenomodular\main.c
+	<stdio.h>
+	<stdlib.h>
+	"adminprov.h"
+	"categorias.h"
+	"clientes.h"
+	"descuentos.h"
+	"devoluciones.h"
+	"lockers.h"
+	"menus.h"
+	"pedidos.h"
+	"productos.h"
+	"transportistas.h"
+	"lectura.h"
+
+1712067604 c:\users\diego\desktop\disenomodular\menus.h
+	"clientes.h"
+	"productos.h"
+	"categorias.h"
+	"descuentos.h"
+	"pedidos.h"
+	"lockers.h"
+	"devoluciones.h"
+	"transportistas.h"
+
+1712074858 c:\users\diego\desktop\disenomodular\productos.h
+	"adminprov.h"
+	"categorias.h"
+
+1712074700 c:\users\diego\desktop\disenomodular\pedidos.h
+	"adminprov.h"
+
+1712073828 c:\users\diego\desktop\disenomodular\transportistas.h
+
+1712140105 source:c:\users\diego\desktop\disenomodular\menus.c
+	<stdio.h>
+	"menus.h"
+	"clientes.h"
+	"productos.h"
+	"categorias.h"
+	"descuentos.h"
+	"pedidos.h"
+	"lockers.h"
+	"devoluciones.h"
+
+1712074759 source:c:\users\diego\desktop\disenomodular\pedidos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"pedidos.h"
+	"lectura.h"
+
+1712074825 source:c:\users\diego\desktop\disenomodular\productos.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"productos.h"
+	"lectura.h"
+
+1712073847 source:c:\users\diego\desktop\disenomodular\transportistas.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	"transportistas.h"
+	"lectura.h"
+

@@ -53,5 +53,14 @@ void MostrarProductosPedidos(ProductosPedidos*,int);
 //Postcondicion: guarda los datos de productospedidos en productospedidos.txt
 void EscribirProductosPedidos(ProductosPedidos*,int);
 
+void Alta_Pedido(Pedidos*, AdminProv*, int, int, int*);
+
+void Baja_Pedido(Pedidos*, int*, AdminProv*, int);
+
+void Busqueda_Pedido(Pedidos*, int, int);
+
+void Modificacion_Pedido(Pedidos*, AdminProv*, int, int);
+
+void Consultar_Pedido(Pedidos*, int);
 
 #endif

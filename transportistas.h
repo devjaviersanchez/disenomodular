@@ -25,4 +25,12 @@ void EscribirTransportistas(Transportista*,int);
 //Postcondicion: muestra los transportistas
 void MostrarTransportistas(Transportista*,int);
 
+void Alta_Transportista(Transportista*, int*);
+
+int Buscar_Transportista(Transportista*, int, int);
+
+void Baja_Transportista(Transportista*, int*, int);
+
+void Modificar_Transportista(Transportista* , int);
+
 #endif

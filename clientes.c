@@ -45,64 +45,153 @@ void MostrarClientes(Cliente *clientes,int n_clientes){
 
 	int j=n_clientes - 1;
 
+    printf("\n\t\t\tLista de clientes:\n");
+
 	while(j>=0){
         printf("\n");
-		printf("Id de cliente: %d\n",clientes[j].id_cliente);
-		printf("Nombre: %s\n",clientes[j].nomb_cliente);
-		printf("Direccion: %s\n",clientes[j].dir_cliente);
-		printf("Localidad: %s\n",clientes[j].localidad);
-		printf("Provincia: %s\n",clientes[j].provincia);
-		printf("Email: %s\n",clientes[j].email);
-		printf("Contrasena: %s\n",clientes[j].contrasena);
-		printf("Cartera: %d\n",clientes[j].cartera);
+		printf("\n\t\t\tId de cliente: %d\n",clientes[j].id_cliente);
+		printf("\n\t\t\tNombre: %s\n",clientes[j].nomb_cliente);
+		printf("\n\t\t\tDireccion: %s\n",clientes[j].dir_cliente);
+		printf("\n\t\t\tLocalidad: %s\n",clientes[j].localidad);
+		printf("\n\t\t\tProvincia: %s\n",clientes[j].provincia);
+		printf("\n\t\t\tEmail: %s\n",clientes[j].email);
+		printf("\n\t\t\tContrasena: %s\n",clientes[j].contrasena);
+		printf("\n\t\t\tCartera: %d\n",clientes[j].cartera);
 
 		j--;
 		printf("\n");
 	}
+
+	system("pause");
 }
 
-void Alta_Cliente(Cliente*clientes,int *n_clientes){
+void Alta_Cliente(Cliente* clientes,int *n_clientes){
 
-    int i=*n_clientes,id;
+    int i = *n_clientes;
 
-    printf("\n\t Introduzca los siguientes datos: \n");
+    if (i == 0) clientes[i].id_cliente = 1;
+    else clientes[i].id_cliente = clientes[i - 1].id_cliente + 1;
 
-    // Con la funcion Buscar_Cliente comprobamos que el id es válido
-    //do{
-        printf("\n\t\t Introduzca el id del cliente: ");
-        fflush(stdin);
-        scanf("%d",&id);
-    //} while(Buscar_Cliente(clientes,*n_clientes,id) != 0);
-
-    clientes[i].id_cliente = id;
-
-    printf("\n\t\t Nombre: ");
+    printf("\n\t\tNombre: ");
     fflush(stdin);
     gets(clientes[i].nomb_cliente);
 
-    printf("\n\t\t Direccion: ");
+    printf("\n\t\tDireccion: ");
     fflush(stdin);
     gets(clientes[i].dir_cliente);
 
-    printf("\n\t\t Localidad: ");
+    printf("\n\t\tLocalidad: ");
     fflush(stdin);
     gets(clientes[i].localidad);
 
-    printf("\n\t\t Provincia: ");
+    printf("\n\t\tContrasena: ");
     fflush(stdin);
     gets(clientes[i].provincia);
 
-    printf("\n\t\t Email: ");
+    printf("\n\t\tEmail: ");
     fflush(stdin);
     gets(clientes[i].email);
 
-    printf("\n\t\t Password: ");
+    printf("\n\t\tPassword: ");
     fflush(stdin);
     gets(clientes[i].contrasena);
 
     clientes[i].cartera=0;
 
-    *n_clientes=i+1;
+    *n_clientes = i+1;
 
     system("cls");
+}
+
+int Buscar_Cliente(Cliente* clientes, int n_clientes,int id) {
+
+    int i,cont=0;
+
+    for (i=0;i<n_clientes;i++)
+        if(clientes[i].id_cliente==id)cont++;
+
+    return cont;
+}
+
+void Listar_Cliente(Cliente* clientes, int n_clientes,int id) {
+
+    int i;
+
+    for (i=0;i<n_clientes;i++)
+        if(clientes[i].id_cliente==id){
+            printf("\n");
+            printf("\n\t\t\tId de cliente: %d\n",clientes[i].id_cliente);
+            printf("\n\t\t\tNombre: %s\n",clientes[i].nomb_cliente);
+            printf("\n\t\t\tDireccion: %s\n",clientes[i].dir_cliente);
+            printf("\n\t\t\tLocalidad: %s\n",clientes[i].localidad);
+            printf("\n\t\t\tProvincia: %s\n",clientes[i].provincia);
+            printf("\n\t\t\tEmail: %s\n",clientes[i].email);
+            printf("\n\t\t\tContrasena: %s\n",clientes[i].contrasena);
+            printf("\n\t\t\tCartera: %d\n\n",clientes[i].cartera);
+        }
+
+    system("pause");
+}
+
+void Baja_Cliente(Cliente* clientes,int *n_clientes, int pos) {
+
+    int i = *n_clientes, j;
+
+    for(j=pos;j<i;j++) {
+        clientes[j].id_cliente=clientes[j+1].id_cliente;
+        strcpy(clientes[j].nomb_cliente,clientes[j+1].nomb_cliente);
+        strcpy(clientes[j].dir_cliente,clientes[j+1].dir_cliente);
+        strcpy(clientes[j].localidad,clientes[j+1].localidad);
+        strcpy(clientes[j].provincia,clientes[j+1].provincia);
+        strcpy(clientes[j].email,clientes[j+1].email);
+        strcpy(clientes[j].contrasena,clientes[j+1].contrasena);
+        clientes[j].cartera=clientes[j+1].cartera;
+    }
+
+    *n_clientes=i-1;
+}
+
+void Modificar_Cliente(Cliente* clientes, int pos){
+
+    char aux[50];
+    int cartera;
+
+    system("cls");
+
+    printf("\n\t\t\tIntroduce los nuevos datos del cliente:\n");
+
+    printf("\n\t\t\t1. Nombre:");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].nomb_cliente,aux);
+
+    printf("\n\t\t\t2. Direccion: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].dir_cliente,aux);
+
+    printf("\n\t\t\t3. Localidad: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].localidad,aux);
+
+    printf("\n\t\t\t4. Provincia: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].provincia,aux);
+
+    printf("\n\t\t\t5. Email: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].email,aux);
+
+    printf("\n\t\t\t6. Contrasena: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].contrasena,aux);
+
+    printf("\n\t\t\t7. Cartera: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(clientes[pos].contrasena,aux);
 }

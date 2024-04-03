@@ -1,6 +1,7 @@
 #ifndef __PRODUCTOS_H__
 #define __PRODUCTOS_H__
 #include "adminprov.h"
+#include "categorias.h"
 
 typedef struct {
 	int id_prod;
@@ -27,5 +28,9 @@ void MostrarProductos(Productos*,int,AdminProv*,int);
 //Postcondicion: guarda los datos de productos en productos.txt
 void EscribirProductos(Productos*,int);
 
+void Alta_Producto(Productos*,AdminProv*,Categorias*,int,int,int,int*);
+int Buscar_Producto(Productos*, int, int);
+void Busqueda_Producto_Categorias(Productos*, Categorias*, int, int);
+void Consultar_Producto(Productos*, int);
 
 #endif

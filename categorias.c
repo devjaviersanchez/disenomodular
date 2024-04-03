@@ -47,3 +47,91 @@ void LeerCategorias(Categorias* categorias){
     fclose(fichero);
 }
 
+void Alta_Categoria(Categorias* categorias,int* n_categorias){
+
+    char s[100];
+    int i=*n_categorias;
+
+    categorias[i].id_categoria=*n_categorias+1;
+
+    printf("Introduce la descripcion de la categoria :");
+    fflush(stdin);
+    gets(s);
+    strcpy(categorias[i].descripcion,s);
+
+    *n_categorias=i+1;
+
+    return categorias;
+}
+
+void Baja_Categoria(Categorias*categorias,int*n_categorias){
+
+    int i=*n_categorias,j,cont=1,x;
+
+    MostrarCategorias(categorias,*n_categorias);
+
+    fflush(stdin);
+    printf("Categoria: ");
+    scanf("%i",&x);
+
+    for(j=x-1;j<i;j++) {
+        categorias[j].id_categoria=categorias[j+cont].id_categoria;
+        strcpy(categorias[j].descripcion,categorias[j+cont].descripcion);
+    }
+
+    *n_categorias=i-1;
+}
+
+
+void Modificacion_Categoria(Categorias* categorias,int n_categorias){
+    int x;
+    system("cls");
+    MostrarCategorias(categorias,n_categorias);
+        fflush(stdin);
+        printf("categoria: ");
+        scanf("%i",&x);
+
+    int opcion;
+        do{
+
+
+    printf("Elija la opcion que desea hacer en el menu de descuentos: \n\n");
+        printf("-> 1. modificar descripcion de la categoria\n\n");
+        printf("-> 2. Atras\n\n");
+
+    fflush(stdin);
+    scanf("%d", &opcion);
+    if(opcion==1){
+                    printf("\n\t\tIntroduce la descripcion: ");
+                    fflush(stdin);
+                    gets(categorias[x-1].descripcion);break;
+
+    }
+
+}while(opcion!=2);
+return categorias;
+}
+
+int Busqueda_Categoria(Categorias*categorias,int n_categorias,int id){
+
+    int cont=0,i;
+    system("cls");
+
+    for (i=0;i<n_categorias;i++)
+        if(categorias[i].id_categoria==id)cont++;
+
+    return cont;
+}
+
+int Busqueda_Categoria_nombre(Categorias*categorias,int n_categorias,char*nombre){
+
+    int cont=0,i;
+    system("cls");
+
+    for (i=0;i<n_categorias;i++)
+        if(strcmp(categorias[i].descripcion,nombre)==0)cont=i;
+
+    return cont;
+}
+
+
