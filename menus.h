@@ -23,16 +23,13 @@ void menu_inicial(int*, int, int, Cliente**, AdminProv*, Transportista*, int*, c
 void iniciar_sesion(int, int, int, Cliente *, AdminProv *, Transportista *, int* , char* , int*);
 
 
-void menu_administrador(Cliente**,AdminProv**,ProductosPedidos**,Productos**,Categorias**,Transportista**,Pedidos**,Descuentos**,DescuentosClientes**,int*,int*,int*,int*,int*,int*,int*,int*,int,int);
+void menu_administrador(Cliente**,AdminProv**,ProductosPedidos**,Productos**,Categorias**,Transportista**,Pedidos**,Descuentos**,DescuentosClientes**,int*,int*,int*,int*,int*,int*,int*,int*,int*,int);
 void menu_administrador_perfil(AdminProv*,int);
 void menu_administrador_clientes(Cliente**,int*);
 void menu_administrador_proveedores(AdminProv**,int*);
 void menu_administrador_productos(AdminProv*,Productos**,Categorias*,int*,int,int,int);
-void menu_administrador_categorias(Categorias**,Productos*,int*,int);
-void menu_administrador_pedidos(ProductosPedidos**,int*,Pedidos**,int*,AdminProv*,int ,int);
+void menu_administrador_categorias(Categorias**,int*);
 void menu_administrador_transportista(Transportista**,int*,int);
-void menu_administrador_descuentos(Descuentos**,DescuentosClientes**,Cliente*,int*,int,int*,int);
-void menu_administrador_devoluciones();
 void menu_superadministrador(AdminProv**,int*);
 
 void menu_clientes(Cliente*, Productos*, Categorias*, DescuentosClientes*, Pedidos*, Lockers*, CompartimentosLockers*,

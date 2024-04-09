@@ -6,21 +6,6 @@
 #include "categorias.h"
 #include "lectura.h"
 
-void MostrarCategorias(Categorias *categorias,int n_categorias){
-
-    int j=n_categorias - 1;
-
-	while(j>=0){
-        printf("\n");
-		printf("Id de categoria: %d\n",categorias[j].id_categoria);
-		printf("Descripcion: %s\n",categorias[j].descripcion);
-
-		j--;
-		printf("\n");
-	}
-}
-
-
 void LeerCategorias(Categorias* categorias){
 
     FILE *fichero;
@@ -47,69 +32,58 @@ void LeerCategorias(Categorias* categorias){
     fclose(fichero);
 }
 
+void MostrarCategorias(Categorias *categorias,int n_categorias){
+
+    int j=n_categorias - 1;
+
+	while(j>=0){
+        printf("\n");
+		printf("\n\t\t\tId de la categoria: %d\n",categorias[j].id_categoria);
+		printf("\n\t\t\tDescripcion: %s\n",categorias[j].descripcion);
+		j--;
+		printf("\n");
+	}
+
+	system("pause");
+}
+
 void Alta_Categoria(Categorias* categorias,int* n_categorias){
 
     char s[100];
     int i=*n_categorias;
 
-    categorias[i].id_categoria=*n_categorias+1;
+    categorias[i].id_categoria=categorias[i - 1].id_categoria + 1;
 
-    printf("Introduce la descripcion de la categoria :");
+    printf("\n\t\t\tIntroduce la descripcion de la categoria :");
     fflush(stdin);
     gets(s);
     strcpy(categorias[i].descripcion,s);
 
     *n_categorias=i+1;
-
-    return categorias;
 }
 
-void Baja_Categoria(Categorias*categorias,int*n_categorias){
+void Baja_Categoria(Categorias*categorias,int*n_categorias,int posicion){
 
-    int i=*n_categorias,j,cont=1,x;
+    int i=*n_categorias,j;
 
-    MostrarCategorias(categorias,*n_categorias);
-
-    fflush(stdin);
-    printf("Categoria: ");
-    scanf("%i",&x);
-
-    for(j=x-1;j<i;j++) {
-        categorias[j].id_categoria=categorias[j+cont].id_categoria;
-        strcpy(categorias[j].descripcion,categorias[j+cont].descripcion);
+    for(j=posicion;j<i;j++) {
+        categorias[j].id_categoria=categorias[j+1].id_categoria;
+        strcpy(categorias[j].descripcion,categorias[j+1].descripcion);
     }
 
     *n_categorias=i-1;
 }
 
 
-void Modificacion_Categoria(Categorias* categorias,int n_categorias){
-    int x;
-    system("cls");
-    MostrarCategorias(categorias,n_categorias);
-        fflush(stdin);
-        printf("categoria: ");
-        scanf("%i",&x);
+void Modificacion_Categoria(Categorias* categorias,int pos){
 
-    int opcion;
-        do{
+    char aux[50];
 
-
-    printf("Elija la opcion que desea hacer en el menu de descuentos: \n\n");
-        printf("-> 1. modificar descripcion de la categoria\n\n");
-        printf("-> 2. Atras\n\n");
-
+    printf("\n\t\t\tIntroduce la nueva descripcion de la categoria: ");
     fflush(stdin);
-    scanf("%d", &opcion);
-    if(opcion==1){
-                    printf("\n\t\tIntroduce la descripcion: ");
-                    fflush(stdin);
-                    gets(categorias[x-1].descripcion);break;
+    gets(aux);
 
-    }
-
-}while(opcion!=2);
-return categorias;
+    strcpy(categorias[pos].descripcion,aux);
 }
 
 int Busqueda_Categoria(Categorias*categorias,int n_categorias,int id){
@@ -123,15 +97,12 @@ int Busqueda_Categoria(Categorias*categorias,int n_categorias,int id){
     return cont;
 }
 
-int Busqueda_Categoria_nombre(Categorias*categorias,int n_categorias,char*nombre){
+void Consultar_Categoria(Categorias*categorias,int posicion){
 
-    int cont=0,i;
-    system("cls");
+    printf("\n\t\t\tId de la categoria: %d", categorias[posicion].id_categoria);
+    printf("\n\t\t\tDescripcion: %s\n\n", categorias[posicion].descripcion);
 
-    for (i=0;i<n_categorias;i++)
-        if(strcmp(categorias[i].descripcion,nombre)==0)cont=i;
-
-    return cont;
+    system("pause");
 }
 
 

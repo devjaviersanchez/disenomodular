@@ -142,7 +142,7 @@ void iniciar_sesion(int n_c, int n_a, int n_t, Cliente *c, AdminProv *a, Transpo
 void menu_administrador(Cliente ** clientes,AdminProv** adminprov,ProductosPedidos** productospedidos,Productos** productos,
                         Categorias**categorias,Transportista**transportistas,Pedidos**pedidos,Descuentos**descuentos,
                         DescuentosClientes**descuentosclientes,int*n_descuentosclientes,int*n_descuentos,int* n_pedidos,int*n_productospedidos,
-                        int*n_clientes,int*n_productos,int*n_adminprov,int*n_transportistas,int n_categorias,int posicion_vector){
+                        int*n_clientes,int*n_productos,int*n_adminprov,int*n_transportistas,int *n_categorias,int posicion_vector){
     int opcion;
 
     do{
@@ -164,10 +164,10 @@ void menu_administrador(Cliente ** clientes,AdminProv** adminprov,ProductosPedid
 
         switch(opcion){
             case 1: menu_administrador_perfil(*adminprov,posicion_vector);break;
-            case 2 :menu_administrador_clientes(clientes,n_clientes);break;
+            case 2: menu_administrador_clientes(clientes,n_clientes);break;
             case 3: menu_administrador_proveedores(adminprov,n_adminprov);break;
             case 4: menu_administrador_productos(*adminprov,productos,categorias,n_productos,*n_adminprov,n_categorias,posicion_vector);break;
-            case 5: menu_administrador_categorias(categorias,productos,n_categorias,*n_productos);break;
+            case 5: menu_administrador_categorias(categorias,n_categorias);break;
             case 6: menu_administrador_transportista(transportistas,n_transportistas,posicion_vector);break;
         }
 
@@ -368,10 +368,10 @@ void menu_administrador_productos(AdminProv*adminprov,Productos**productos,Categ
 }
 
 
-void menu_administrador_categorias(Categorias**categorias,Productos*productos,int*n_categorias,int n_productos){
+void menu_administrador_categorias(Categorias**categorias, int*n_categorias){
 
     int opcion;
-    char * nombre;
+    int id;
 
     do {
 
@@ -380,33 +380,49 @@ void menu_administrador_categorias(Categorias**categorias,Productos*productos,in
         printf("\n\t\t\tMenu de gestion de categorias:\n");
         printf("\n\t\t\t1. Dar de alta una categoria\n");
         printf("\n\t\t\t2. Dar de baja una categoria\n");
-        printf("\n\t\t\t3. Listar una categoria\n");
+        printf("\n\t\t\t3. Listar todas las categorias\n");
         printf("\n\t\t\t4. Buscar una categoria\n");
         printf("\n\t\t\t5. Modificar una categoria\n");
         printf("\n\t\t\t7. Atras\n\n");
-        printf("Opcion: ");
-        scanf("\n\t\t\t%i",&opcion);
+        printf("\n\t\t\tOpcion: ");
         fflush(stdin);
+        scanf("%i",&opcion);
 
         system("cls");
+
         switch(opcion){
-            case 1 : (*categorias) = (Categorias*)realloc((*categorias), (*n_categorias+ 1) * sizeof(Categorias));
+            case 1:
+                (*categorias) = (Categorias*)realloc((*categorias), (*n_categorias+ 1) * sizeof(Categorias));
                 Alta_Categoria(*categorias,n_categorias);break;
 
-            case 2 : Baja_Categoria(*categorias,n_categorias);
-            (*categorias) = (Categorias*)realloc((*categorias), (*n_categorias) * sizeof(Categorias)); break;
-
-            case 3 : MostrarCategorias(*categorias,*n_categorias);break;
-
-            case 4 :
-                printf("\n\t\tIntroduce la categoria: ");
+            case 2:
+                do{
+                    printf("\n\t\t\tIntroduce el id de la categoria que quieres eliminar: ");
                     fflush(stdin);
-                    gets(nombre);
-                if(Busqueda_Categoria_nombre(*categorias,*n_categorias,nombre)==0){printf("La categoria %s Existe",nombre);
-                     }else{printf("La categoria %s NO Existe",nombre);};break;
+                    scanf("%i",&id);
+                }while(Busqueda_Categoria(*categorias,*n_categorias,id)==0);
+                Baja_Categoria(*categorias,n_categorias, id - 1);
+                (*categorias) = (Categorias*)realloc((*categorias), (*n_categorias) * sizeof(Categorias)); break;
 
-            case 5 : Modificacion_Categoria(*categorias,*n_categorias);break;
-            }
+            case 3: MostrarCategorias(*categorias, *n_categorias);break;
+
+            case 4:
+                do{
+                    printf("\n\t\t\tIntroduce el id de la categoria que quieres consultar: ");
+                    fflush(stdin);
+                    scanf("%i",&id);
+                }while(Busqueda_Categoria(*categorias,*n_categorias,id)==0);
+                Consultar_Categoria(*categorias, id - 1);break;
+
+            case 5:
+                do{
+                    printf("\n\t\t\tIntroduce el id de la categoria que quieres consultar: ");
+                    fflush(stdin);
+                    scanf("%i",&id);
+                }while(Busqueda_Categoria(*categorias,*n_categorias,id)==0);
+                Modificacion_Categoria(*categorias, id - 1);break;
+        }
+
     } while(opcion!=7);
 }
 

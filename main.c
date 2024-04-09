@@ -79,7 +79,7 @@ int main()
                 menu_administrador(&clientes,&adminProv,&productosPedidos,&productos,&categorias,
                                        &transportistas,&pedidos,&descuentos,&descuentosClientes,&n_descuentosclientes,
                                        &n_descuentos,&n_pedidos,&n_productospedidos,&n_clientes,&n_productos,
-                                       &n_adminprov,&n_transportistas,n_categorias,posicion_vector);
+                                       &n_adminprov,&n_transportistas,&n_categorias,posicion_vector);
 
                 tipo_usuario = 0; // para cerrar sesion
                 break;

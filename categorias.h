@@ -23,12 +23,12 @@ void EscribirCategorias(Categorias*,int);
 
 void Alta_Categoria(Categorias*, int*);
 
-void Baja_Categoria(Categorias*, int*);
+void Baja_Categoria(Categorias*, int*, int);
 
 void Modificacion_Categoria(Categorias*, int);
 
 int Busqueda_Categoria(Categorias*, int, int);
 
-int Busqueda_Categoria_nombre(Categorias*, int, char*);
+void Consultar_Categoria(Categorias*, int);
 
 #endif
