@@ -10,17 +10,23 @@ void MostrarAdminProv(AdminProv *adminprov,int n_adminprov){
 
 	int j=n_adminprov - 1;
 
-	while(j>=0){
-        printf("\n");
-        printf("Id: %d\n",adminprov[j].id_empresa);
-		printf("Nombre: %s\n",adminprov[j].nombre);
-		printf("Email: %s\n",adminprov[j].email);
-		printf("Contrasena: %s\n",adminprov[j].contrasena);
-		printf("Perfil: %s\n",adminprov[j].perfil);
+	printf("\n\t\t\tListado de proveedores:\n");
 
-		j--;
-		printf("\n");
+	while(j>=0){
+        if (strcmp(adminprov[j].perfil, "proveedor") == 0) {
+            printf("\n");
+            printf("\n\t\t\tId: %d\n",adminprov[j].id_empresa);
+            printf("\n\t\t\tNombre: %s\n",adminprov[j].nombre);
+            printf("\n\t\t\tEmail: %s\n",adminprov[j].email);
+            printf("\n\t\t\tContrasena: %s\n",adminprov[j].contrasena);
+            printf("\n\t\t\tPerfil: %s\n",adminprov[j].perfil);
+
+        }
+        j--;
 	}
+	printf("\n");
+
+	system("pause");
 }
 
 void LeerAdminProv(AdminProv * adminprov){
@@ -54,12 +60,12 @@ void LeerAdminProv(AdminProv * adminprov){
 	fclose(fichero);
 }
 
-int Buscar_AdminProv(AdminProv* adminyprov, int n_adminprov,int id) {
+int Buscar_AdminProv(AdminProv* adminyprov, int n_adminprov,int id, char* perfil) {
 
     int i,cont=0;
 
     for (i=0;i<n_adminprov;i++)
-        if(adminyprov[i].id_empresa==id) cont++;
+        if(adminyprov[i].id_empresa==id && strcmp(adminyprov[i].perfil, perfil) == 0) cont++;
 
     return cont;
 }
@@ -71,13 +77,7 @@ void Alta_AdminProv(AdminProv* adminyprov,int *n_adminprov,char* tipo){
     int i=*n_adminprov,id;
     strcpy(adminyprov[i].perfil,tipo);
 
-    do{
-        printf("\n\t\t\Introduzca un id valido para el nuevo usuario:");
-        fflush(stdin);
-        scanf("%d",&id);
-    }while(Buscar_AdminProv(adminyprov,*n_adminprov,id)!=0); // Si el id esta en uso se repite el buclue
-
-    adminyprov[i].id_empresa=id;
+    adminyprov[i].id_empresa=adminyprov[i - 1].id_empresa + 1;
 
     if(strcmp(tipo, "administrador")==0){
         strcpy(adminyprov[i].nombre,"ESIZON");
@@ -104,15 +104,14 @@ void Baja_AdminProv(AdminProv* adminyprov,int *n_adminprov, int pos,char* tipo){
     // Comprobamos que se esta eliminando un administrador, y no un proveedor
     if (strcmp(adminyprov[pos].perfil,tipo)==0){
 
-        int i = *n_adminprov, j, cont=1;
+        int i = *n_adminprov, j;
 
         for(j=pos;j<i;j++){
-            adminyprov[j].id_empresa=adminyprov[j+cont].id_empresa;
-            strcpy(adminyprov[j].nombre,adminyprov[j+cont].nombre);
-            strcpy(adminyprov[j].email,adminyprov[j+cont].email);
-            strcpy(adminyprov[j].contrasena,adminyprov[j+cont].contrasena);
-            strcpy(adminyprov[j].perfil,adminyprov[j+cont].perfil);
-
+            adminyprov[j].id_empresa=adminyprov[j+1].id_empresa;
+            strcpy(adminyprov[j].nombre,adminyprov[j+1].nombre);
+            strcpy(adminyprov[j].email,adminyprov[j+1].email);
+            strcpy(adminyprov[j].contrasena,adminyprov[j+1].contrasena);
+            strcpy(adminyprov[j].perfil,adminyprov[j+1].perfil);
         }
 
         *n_adminprov=i-1;

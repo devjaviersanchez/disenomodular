@@ -68,6 +68,7 @@ void MostrarClientes(Cliente *clientes,int n_clientes){
 void Alta_Cliente(Cliente* clientes,int *n_clientes){
 
     int i = *n_clientes;
+    int cartera;
 
     if (i == 0) clientes[i].id_cliente = 1;
     else clientes[i].id_cliente = clientes[i - 1].id_cliente + 1;
@@ -96,7 +97,10 @@ void Alta_Cliente(Cliente* clientes,int *n_clientes){
     fflush(stdin);
     gets(clientes[i].contrasena);
 
-    clientes[i].cartera=0;
+    printf("\n\t\tCartera: ");
+    fflush(stdin);
+    scanf("%d", &cartera);
+    clientes[i].cartera=cartera;
 
     *n_clientes = i+1;
 
@@ -192,6 +196,6 @@ void Modificar_Cliente(Cliente* clientes, int pos){
 
     printf("\n\t\t\t7. Cartera: ");
     fflush(stdin);
-    gets(aux);
-    strcpy(clientes[pos].contrasena,aux);
+    scanf("%d", &cartera);
+    clientes[pos].cartera=cartera;
 }

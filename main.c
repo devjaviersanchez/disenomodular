@@ -90,11 +90,12 @@ int main()
                                        n_transportistas,n_productos,n_productospedidos,n_lockers,n_pedidos,
                                        n_compartimentoslockers,posicion_vector);*/break;
         }
+
     } while(atras!=3);
 
     // Funciones usadas durante el desarrollo para comprobar que la lectura de ficheros es correcta
     // MostrarClientes(clientes  ,n_clientes);
-    // MostrarAdminProv(adminProv ,n_adminprov);
+    MostrarAdminProv(adminProv ,n_adminprov);
     // MostrarTransportistas(transportistas,n_transportistas);
     // MostrarProductos(productos,n_productos, adminProv, posicion_vector);
     // MostrarCategorias (categorias,n_categorias);

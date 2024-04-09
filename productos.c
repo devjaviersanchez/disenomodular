@@ -45,23 +45,26 @@ void MostrarProductos(Productos *productos,int n_productos,AdminProv*adminprov,i
     int j=n_productos-1;
     int cont=0;
 
+    printf("\n\t\t\tLista de productos: \n");
+
 	while(j>=0){
-        if(adminprov[posicion_vector].id_empresa == productos[j].id_gestor || strcmp(adminprov[posicion_vector].perfil,"admin") == 0){
+        if(adminprov[posicion_vector].id_empresa == productos[j].id_gestor || strcmp(adminprov[posicion_vector].perfil,"administrador") == 0){
             printf("\n");
-            printf("Producto: %d\n",productos[j].id_prod);
-            printf("Descripcion: %s\n",productos[j].descripcion);
-            printf("Categoria: %d\n",productos[j].id_categoria);
-            printf("Gestor: %d\n",productos[j].id_gestor);
-            printf("Stock: %d\n",productos[j].stock);
-            printf("Entrega: %d\n",productos[j].entrega);
-            printf("Importe: %d\n",productos[j].importe);
+            printf("\n\t\t\tId del producto: %d\n",productos[j].id_prod);
+            printf("\n\t\t\tDescripcion: %s\n",productos[j].descripcion);
+            printf("\n\t\t\tCategoria: %d\n",productos[j].id_categoria);
+            printf("\n\t\t\tGestor: %d\n",productos[j].id_gestor);
+            printf("\n\t\t\tStock: %d\n",productos[j].stock);
+            printf("\n\t\t\tEntrega: %d\n",productos[j].entrega);
+            printf("\n\t\t\tImporte: %d\n",productos[j].importe);
             printf("\n");cont++;
         }
-
         j--;
     }
 
-	if (cont < 1) printf("Usted no tiene ningun producto dado de alta\n");
+	if (cont < 1) printf("\n\n\t\t\tUsted no tiene ningun producto dado de alta\n");
+
+	system("pause");
 }
 
 void Alta_Producto(Productos* productos,AdminProv* adminprov,Categorias*categorias,int posicion_vector,int n_categorias,int n_adminprov,int* n_productos){
@@ -70,21 +73,15 @@ void Alta_Producto(Productos* productos,AdminProv* adminprov,Categorias*categori
     int i=*n_productos;
     int id,cat;
 
-    do{
-        printf("\n\t Introduzca el id del Producto: \n");
-        fflush(stdin);
-        scanf("%i",&id);
-    }while(Buscar_Producto(productos,i,id)!=0);
+    productos[i].id_prod=productos[i-1].id_prod + 1;
 
-    productos[i].id_prod=id;
-
-    printf("introduce la descripcion :");
+    printf("\n\t\t\tIntroduce la descripcion del nuevo producto: ");
     fflush(stdin);
     gets(s);
     strcpy(productos[i].descripcion,s);
 
     do{
-        printf("introduce el numero de categoria :");
+        printf("\n\t\t\tIntroduce un id de categoria valido: ");
         fflush(stdin);
         scanf("%i",&cat);
     }while(Busqueda_Categoria(categorias,n_categorias,cat)==0);
@@ -93,52 +90,41 @@ void Alta_Producto(Productos* productos,AdminProv* adminprov,Categorias*categori
 
     productos[i].id_gestor=adminprov[posicion_vector].id_empresa;
 
-    printf("introduce el stock :");
+    printf("\n\t\t\tIntroduce el stock :");
     fflush(stdin);
     gets(s);
     productos[i].stock=entero(s);
-    printf("introduce el compromiso de entrega:");
+
+    printf("\n\t\t\tIntroduce el compromiso de entrega: ");
     fflush(stdin);
     gets(s);
     productos[i].entrega=entero(s);
-    printf("introduce el importe:");
+
+    printf("\n\t\t\tIntroduce el importe: ");
     fflush(stdin);
     gets(s);
     productos[i].importe=entero(s);
-    *n_productos=i+1;
-    // Consultar_Producto(productos,i);
 
+    *n_productos=i+1;
 }
 
 void Baja_Producto(Productos*productos,int*n_productos,AdminProv*adminprov,int posicion_vector){
 
-    int j,cont=1,x,i;
+    int j;
 
-    MostrarProductos(productos,*n_productos,adminprov,posicion_vector);
-    fflush(stdin);
-    printf("Id del producto: ");
-    scanf("%i",&x);
-
-    for(i=0;i<*n_productos;i++){
-        if(productos[i].id_prod==x){
-            if(productos[i].id_gestor!=adminprov[posicion_vector].id_empresa && strcmp(adminprov[posicion_vector].perfil,"admin")!=0)printf("ESTE PRODUCTO NO LE PERTENECE");
-            else{
-                for(j=i;j<*n_productos;j++) {
-                    productos[j].id_prod=productos[j+cont].id_prod;
-                    strcpy(productos[j].descripcion,productos[j+cont].descripcion);
-                    productos[j].id_categoria=productos[j+cont].id_categoria;
-                    productos[j].id_gestor=productos[j+cont].id_gestor;
-                    productos[j].stock=productos[j+cont].stock;
-                    productos[j].entrega=productos[j+cont].entrega;
-                    productos[j].importe=productos[j+cont].importe;
-
-                }
-                *n_productos=i-1;
-            }
-
-        }
+    for(j=posicion_vector;j<*n_productos;j++) {
+        productos[j].id_prod=productos[j+1].id_prod;
+        strcpy(productos[j].descripcion,productos[j+1].descripcion);
+        productos[j].id_categoria=productos[j+1].id_categoria;
+        productos[j].id_gestor=productos[j+1].id_gestor;
+        productos[j].stock=productos[j+1].stock;
+        productos[j].entrega=productos[j+1].entrega;
+        productos[j].importe=productos[j+1].importe;
     }
+
+    *n_productos=*n_productos-1;
 }
+
 
 int Buscar_Producto(Productos* productos,int n_productos,int id){
 
@@ -153,106 +139,49 @@ int Buscar_Producto(Productos* productos,int n_productos,int id){
 
 void Modificacion_Producto(Productos* productos,AdminProv* adminprov,int n_categorias,int n_productos,int posicion_vector){
 
-    int x,i;
-    system("cls");
+    char aux[50];
+    int auxEntero;
 
-    MostrarProductos(productos,n_productos,adminprov,posicion_vector);
+    printf("\n\t\t\tIntroduce los nuevos datos del producto:\n");
+
+    printf("\n\t\t\tDescripcion del producto: ");
     fflush(stdin);
-    printf("producto: ");
-    scanf("%i",&x);
+    gets(aux);
+    strcpy(productos[posicion_vector].descripcion,aux);
 
-        for(i=0;i<n_productos;i++){
-            if(productos[i].id_prod==x){
-                if(productos[i].id_gestor!=adminprov[posicion_vector].id_empresa && strcmp(adminprov[posicion_vector].perfil,"admin")!=0)printf("ESTE PRODUCTO NO LE PERTENECE");
-                else{
-                    int opcion;
-                    char aux[50];
+    printf("\n\t\t\tId de la categoria: ");
+    scanf("%d", &auxEntero);
+    productos[posicion_vector].id_categoria = auxEntero;
 
-                    do {
+    printf("\n\t\t\tId del gestor:");
+    scanf("%d", &auxEntero);
+    productos[posicion_vector].id_gestor = auxEntero;
 
-                        Consultar_Producto(productos,i);
+    printf("\n\t\t\tStock: ");
+    scanf("%d", &auxEntero);
+    productos[posicion_vector].stock = auxEntero;
 
-                        printf("Elija la opcion que desea hacer en el menu de pedidos: \n\n");
-                        printf("-> 1. modificar descripcion del producto\n\n");
-                        printf("-> 2. modificar categoria del producto\n\n");
-                        printf("-> 3. modificar stock del producto\n\n");
-                        printf("-> 4. modificar compromiso del producto\n\n");
-                        printf("-> 5. modificar importe del producto\n\n");
-                        printf("-> 6. Atras\n\n");
+    printf("\n\t\t\tCompromiso de entrega (numero de dias):");
+    scanf("%d", &auxEntero);
+    productos[posicion_vector].entrega = auxEntero;
 
-                        fflush(stdin);
-                        scanf("%d", &opcion);
-                        switch(opcion){
-                            case 1:         printf("\n\t\tIntroduce la descripcion: ");
-                                            fflush(stdin);
-                                            gets(productos[i].descripcion);break;
-
-                            case 2:         do{
-                                                printf("\n\t\tIntroduce la categoria: ");
-                                                fflush(stdin);
-                                                gets(aux);
-                                            }while(entero(aux)>=n_categorias);
-                                            productos[i].id_categoria=entero(aux);break;
-
-                            case 3:         printf("\n\t\tIntroduce el stock: ");
-                                            fflush(stdin);
-                                            gets(aux);
-                                            productos[i].stock=entero(aux);break;
-
-                            case 4:         printf("\n\t\tIntroduce el compromiso: ");
-                                            fflush(stdin);
-                                            gets(aux);
-                                            productos[i].entrega=entero(aux);break;
-
-                            case 5:         printf("\n\t\tIntroduce el importe: ");
-                                            fflush(stdin);
-                                            gets(aux);
-                                            productos[i].importe=entero(aux);break;
-                        }
-
-                    }while(opcion!=6);
-
-                }
-            }
-        }
-}
-
-void Busqueda_Producto_Categorias(Productos*productos,Categorias*categorias,int n_categorias,int n_productos){
-
-    int i=0,j,aux=0;
-    char  x[100];
-
-    printf("introduce la categoria: \n\n");
-    fflush(stdin);
-    gets(x);
-    fflush(stdin);
-
-    while(i<n_categorias){
-        if(strstr(categorias[i].descripcion,x)!=NULL){
-            j=0;
-            while(j<n_productos){
-                if(productos[j].id_categoria==categorias[i].id_categoria){
-                    Consultar_Producto(productos,j);
-                    aux=1;
-                }
-                j++;
-            }
-        }
-        i++;
-    }
-    if(aux==0)printf("Ese nombre de Categoria no corresponde con ningun Producto");
+    printf("\n\t\t\tImporte:");
+    scanf("%d", &auxEntero);
+    productos[posicion_vector].importe = auxEntero;
 }
 
 void Consultar_Producto(Productos*productos,int x){
 
         printf("\n");
-		printf("Producto: %d\n",productos[x].id_prod);
-		printf("Descripcion: %s\n",productos[x].descripcion);
-		printf("Categoria: %d\n",productos[x].id_categoria);
-		printf("Gestor: %d\n",productos[x].id_gestor);
-		printf("Stock: %d\n",productos[x].stock);
-		printf("Compromiso: %d\n",productos[x].entrega);
-		printf("Importe: %d\n",productos[x].importe);
+		printf("\n\t\t\tProducto: %d\n",productos[x].id_prod);
+		printf("\n\t\t\tDescripcion: %s\n",productos[x].descripcion);
+		printf("\n\t\t\tCategoria: %d\n",productos[x].id_categoria);
+		printf("\n\t\t\tGestor: %d\n",productos[x].id_gestor);
+		printf("\n\t\t\tStock: %d\n",productos[x].stock);
+		printf("\n\t\t\tCompromiso: %d\n",productos[x].entrega);
+		printf("\n\t\t\tImporte: %d\n",productos[x].importe);
 		printf("\n");
+
+		system("pause");
 }
 
