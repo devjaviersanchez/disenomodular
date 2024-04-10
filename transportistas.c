@@ -40,55 +40,83 @@ void LeerTransportistas(Transportista* transportista){
 	fclose(fichero);
 }
 
+void Listar_Transportitsta (Transportista* transportista, int posicion) {
+
+    system("cls");
+
+    printf("\n\t\t\tId del transportista: %d\n",transportista[posicion].id_transp);
+    printf("\n\t\t\tNombre: %s\n",transportista[posicion].nombre);
+    printf("\n\t\t\tEmail: %s\n",transportista[posicion].email);
+    printf("\n\t\t\tContrasena: %s\n",transportista[posicion].contrasena);
+    printf("\n\t\t\tEmpresa: %s\n",transportista[posicion].nombre_empresa);
+    printf("\n\t\t\tCiudad: %s\n\n",transportista[posicion].nombre_ciudad);
+
+    system("pause");
+}
+
 void MostrarTransportistas(Transportista *transportista,int n_transportista){
 
 	int j=n_transportista - 1;
 
+	system("cls");
+	printf("\n\t\t\tLista de transportistas:\n");
+
 	while(j>=0){
         printf("\n");
-        printf("Id: %d\n",transportista[j].id_transp);
-        printf("Nombre: %s\n",transportista[j].nombre);
-		printf("Email: %s\n",transportista[j].email);
-		printf("Contrasena: %s\n",transportista[j].contrasena);
-		printf("Empresa: %s\n",transportista[j].nombre_empresa);
-		printf("Ciudad: %s\n",transportista[j].nombre_ciudad);
+        printf("\n\t\t\tId del transportista: %d\n",transportista[j].id_transp);
+        printf("\n\t\t\tNombre: %s\n",transportista[j].nombre);
+		printf("\n\t\t\tEmail: %s\n",transportista[j].email);
+		printf("\n\t\t\tContrasena: %s\n",transportista[j].contrasena);
+		printf("\n\t\t\tEmpresa: %s\n",transportista[j].nombre_empresa);
+		printf("\n\t\t\tCiudad: %s\n",transportista[j].nombre_ciudad);
 
 		j--;
 		printf("\n");
 	}
+
+	system("pause");
 }
 
 void Alta_Transportista(Transportista* transportistas,int *n_transportistas){
 
-    int i=*n_transportistas,id;
-    do{
-        printf("\n\t Introduzca el id del adminprov: \n");
-        printf("\n\t\t Adminprov :\n");
-        fflush(stdin);
-        scanf("%d",&id);
-    }while(Buscar_Transportista(transportistas,*n_transportistas,id)!=0);
+    int i=*n_transportistas;
+    char aux[50];
 
-    transportistas[i].id_transp=id;
-    printf("\n\t Introduzca los siguientes datos: \n");
-    printf("\n\t\t Email :\n");
+    system("cls");
+
+    transportistas[i].id_transp= transportistas[i - 1].id_transp + 1;
+
+    printf("\n\t\t\tNombre del transportista:");
     fflush(stdin);
-    gets(transportistas[i].email);
-    printf("\n\t\t Password :\n");
+    gets(aux);
+    strcpy(transportistas[i].nombre , aux);
+
+    printf("\n\t\t\tEmail:");
     fflush(stdin);
-    gets(transportistas[i].contrasena);
-    printf("\n\t\t Nombre de la empresa :\n");
+    gets(aux);
+    strcpy(transportistas[i].email, aux);
+
+    printf("\n\t\t\tContrasena:");
     fflush(stdin);
-    gets(transportistas[i].nombre_empresa);
-    printf("\n\t\t Ciudad :\n");
+    gets(aux);
+    strcpy(transportistas[i].contrasena, aux);
+
+    printf("\n\t\t\tNombre de la empresa:");
     fflush(stdin);
-    gets(transportistas[i].nombre_ciudad);
+    gets(aux);
+    strcpy(transportistas[i].nombre_empresa, aux);
+
+    printf("\n\t\t\tCiudad:");
+    fflush(stdin);
+    gets(aux);
+    strcpy(transportistas[i].nombre_ciudad, aux);
 
     *n_transportistas=i+1;
 }
 
 int Buscar_Transportista(Transportista* transportistas, int n_transportistas,int id) {
+
     int i,cont=0;
-    char email[30];
 
     for (i=0;i<n_transportistas;i++)
         if(transportistas[i].id_transp==id) cont++;
@@ -98,14 +126,14 @@ int Buscar_Transportista(Transportista* transportistas, int n_transportistas,int
 
 void Baja_Transportista(Transportista* transportistas,int *n_transportistas, int pos){
 
-    int i=*n_transportistas,j,cont=1;
+    int i=*n_transportistas,j;
 
     for(j=pos;j<i;j++) {
-        transportistas[j].id_transp=transportistas[j+cont].id_transp;
-        strcpy(transportistas[j].email,transportistas[j+cont].email);
-        strcpy(transportistas[j].contrasena,transportistas[j+cont].contrasena);
-        strcpy(transportistas[j].nombre_empresa,transportistas[j+cont].nombre_empresa);
-        strcpy(transportistas[j].nombre_ciudad,transportistas[j+cont].nombre_ciudad);
+        transportistas[j].id_transp=transportistas[j+1].id_transp;
+        strcpy(transportistas[j].email,transportistas[j+1].email);
+        strcpy(transportistas[j].contrasena,transportistas[j+1].contrasena);
+        strcpy(transportistas[j].nombre_empresa,transportistas[j+1].nombre_empresa);
+        strcpy(transportistas[j].nombre_ciudad,transportistas[j+1].nombre_ciudad);
     }
 
     *n_transportistas=i-1;
@@ -113,53 +141,34 @@ void Baja_Transportista(Transportista* transportistas,int *n_transportistas, int
 
 void Modificar_Transportista(Transportista* transportistas, int pos){
 
+    char aux[50];
+
     system("cls");
-    int opcion;
-    char  aux[50];
 
+    printf("\n\t\t\tIntroduce los nuevos datos del transportista:\n");
 
-    do{
-        printf("\n\t\t Que campo desea modificar?. \n");
-        printf("\n\t\t 1. Email.\n");
-        printf("\n\t\t 2. Password.\n");
-        printf("\n\t\t 3. Empresa.\n");
-        printf("\n\t\t 4. Ciudad.\n");
-        printf("\n\n\n\t\t 5. Salir.\n");
+    printf("\n\t\t\tNombre del transportista: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(transportistas[pos].nombre , aux);
 
-        scanf("%i",&opcion);
+    printf("\n\t\t\tEmail: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(transportistas[pos].email, aux);
 
-        switch(opcion)
-        {
-            case 1: { system("pause");
-                      system("cls");
-                      printf("\n\t Escriba el nuevo Email:\n");
-                      gets(aux);
-                      fflush(stdin);
-                      strcpy(transportistas[pos].email,aux);};break;
+    printf("\n\t\t\tContrasena: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(transportistas[pos].contrasena, aux);
 
-            case 2: { system("pause");
-                      system("cls");
-                      printf("\n\t Escriba la nueva Password:\n");
-                      gets(aux);
-                      fflush(stdin);
-                      strcpy(transportistas[pos].contrasena,aux);};break;
+    printf("\n\t\t\tNombre de la empresa: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(transportistas[pos].nombre_empresa, aux);
 
-            case 3: { system("pause");
-                      system("cls");
-                      printf("\n\t Escriba el nuevo nombre de la empresa:\n");
-                      gets(aux);
-                      fflush(stdin);
-                      strcpy(transportistas[pos].nombre_empresa,aux);};break;
-
-            case 4: { system("pause");
-                      system("cls");
-                      printf("\n\t Escriba la nueva Ciudad:\n");
-                      gets(aux);
-                      fflush(stdin);
-                      strcpy(transportistas[pos].nombre_ciudad,aux);};break;
-
-
-        }
-
-    } while(opcion!=5);
+    printf("\n\t\t\tCiudad: ");
+    fflush(stdin);
+    gets(aux);
+    strcpy(transportistas[pos].nombre_ciudad, aux);
 }

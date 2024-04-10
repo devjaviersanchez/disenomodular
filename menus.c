@@ -436,7 +436,7 @@ void menu_administrador_transportista(Transportista** transportistas,int* n_tran
         printf("\n\t\t\tMenu de gestion de transportistas: \n");
         printf("\n\t\t\t1. Dar de alta un transportista\n");
         printf("\n\t\t\t2. Dar de baja un transportista\n");
-        printf("\n\t\t\t3. Listar un transportista\n");
+        printf("\n\t\t\t3. Listar todos los transportistas\n");
         printf("\n\t\t\t4. Buscar un transportista\n");
         printf("\n\t\t\t5. Modificar un transportista\n");
         printf("\n\t\t\t6. Atras\n\n");
@@ -445,32 +445,40 @@ void menu_administrador_transportista(Transportista** transportistas,int* n_tran
         scanf("%i",&opcion);
         fflush(stdin);
 
+        system("cls");
+
         switch(opcion){
             case 1 :
                 (*transportistas) = (Transportista*)realloc((*transportistas), (*n_transportistas+ 1) * sizeof(Transportista));
-                Alta_Transportista(*transportistas,n_transportistas);
-                break;
+                Alta_Transportista(*transportistas,n_transportistas);break;
 
-            case 2 :  do{
-                        printf("introduce el transportista a eliminar: ");
-                        scanf("%i",&p);
-                        fflush(stdin);
-                    }while(Buscar_Transportista(*transportistas,*n_transportistas,p)==0);
-                    Baja_Transportista(*transportistas,n_transportistas,p);
-                    (*transportistas) = (Transportista*)realloc((*transportistas), (*n_transportistas+ 1) * sizeof(Transportista));break;
+            case 2 :
+                do{
+                    printf("\n\t\t\tIntroduce el id del transportista que quieres eliminar: ");
+                    scanf("%i",&id);
+                    fflush(stdin);
+                }while(Buscar_Transportista(*transportistas,*n_transportistas,p)==0);
+                Baja_Transportista(*transportistas,n_transportistas,p - 1);
+                (*transportistas) = (Transportista*)realloc((*transportistas), (*n_transportistas+ 1) * sizeof(Transportista));break;
 
             case 3 : MostrarTransportistas(*transportistas,*n_transportistas);break;
 
-            case 4 : printf("Introduce un cliente a buscar");
-                     scanf("%d",&id);
-                    if( Buscar_Transportista(*transportistas,*n_transportistas,id)==0){printf("El cliente %d Existe",id);
-                    }else{printf("El cliente %d NO Existe",id); };break;
-
-            case 5 :  do{printf("introduce el transportistas a modificar: ");
-                    scanf("%i",&p);
+            case 4 :
+                do{
+                    printf("\n\t\t\tIntroduce el id del transportista que quieres consultar: ");
+                    scanf("%i",&id);
                     fflush(stdin);
-                    }while(Buscar_Transportista(*transportistas,*n_transportistas,p)==0);
-                    Modificar_Transportista(*transportistas,p);break;
-            }
-        }while(opcion!=6);
+                }while(Buscar_Transportista(*transportistas,*n_transportistas,id)==0);
+                Listar_Transportitsta(*transportistas, id - 1);
+                break;
+
+            case 5 :
+                do{
+                    printf("\n\t\t\tIntroduce el id del transportista que quieres modificar: ");
+                    fflush(stdin);
+                    scanf("%i",&id);
+                }while(Buscar_Transportista(*transportistas,*n_transportistas,id)==0);
+                Modificar_Transportista(*transportistas,id - 1);break;
+        }
+    }while(opcion!=6);
 }
