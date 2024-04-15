@@ -93,6 +93,19 @@ int main()
 
     } while(atras!=3);
 
+    EscribirClientes(clientes  ,n_clientes);
+    EscribirAdminProv(adminProv ,n_adminprov);
+    EscribirTransportistas(transportistas,n_transportistas);
+    EscribirDevoluciones(devoluciones, n_devoluciones);
+    EscribirDescuentos(descuentos,n_descuentos);
+    EscribirDescuentosClientes(descuentosClientes,n_descuentosclientes);
+    EscribirProductos(productos,n_productos);
+    EscribirProductosPedidos(productosPedidos,n_productospedidos);
+    EscribirPedidos(pedidos,n_pedidos);
+    EscribirLockers(lockers,n_lockers);
+    EscribirCategorias(categorias,n_categorias);
+    EscribirCompartimentosLockers(compartimentosLockers,n_compartimentoslockers);
+
     // Funciones usadas durante el desarrollo para comprobar que la lectura de ficheros es correcta
     // MostrarClientes(clientes  ,n_clientes);
     // MostrarAdminProv(adminProv ,n_adminprov);

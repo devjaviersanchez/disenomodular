@@ -32,6 +32,27 @@ void LeerCategorias(Categorias* categorias){
     fclose(fichero);
 }
 
+void EscribirCategorias(Categorias *categorias,int n_categorias){
+    FILE *fichero;
+	fichero=fopen("Categorias.txt","w");
+
+    if (fichero == NULL)
+		puts("\nError al abrir Categorias.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_categorias){
+			fprintf(fichero, "%d-%s",categorias[j].id_categoria,categorias[j].descripcion);
+            if(j!=n_categorias-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void MostrarCategorias(Categorias *categorias,int n_categorias){
 
     int j=n_categorias - 1;

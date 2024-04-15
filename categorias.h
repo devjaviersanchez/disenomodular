@@ -11,6 +11,8 @@ typedef struct {
 //Postcondicion: guarda los datos de categorias.txt en categorias
 void LeerCategorias(Categorias*);
 
+void EscribirCategorias(Categorias *categorias,int n_categorias);
+
 //cabecera:void MostrarCategorias(Categorias *,int)
 //Precondicion: categorias y n_categorias inicializados
 //Postcondicion: muestra los categorias

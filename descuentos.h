@@ -23,6 +23,10 @@ typedef struct {
 //Postcondicion: guarda los datos de descuentos.txt en descuentos
 void LeerDescuentos(Descuentos*);
 
+void EscribirDescuentos(Descuentos *descuentos,int n_descuentos);
+
+void EscribirDescuentosClientes(DescuentosClientes *descuentosclientes,int n_descuentosclientes);
+
 //cabecera:void MostrarDescuentos(Descuentos* ,int)
 //Precondicion: descuentos y n_descuentos inicializados
 //Postcondicion: muestra los descuentos

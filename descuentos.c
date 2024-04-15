@@ -70,6 +70,46 @@ void LeerDescuentosClientes(DescuentosClientes* descuentosclientes){
 	}
 }
 
+void EscribirDescuentos(Descuentos *descuentos,int n_descuentos){
+    FILE *fichero;
+	fichero=fopen("Descuentos.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir Descuentos.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_descuentos){
+			fprintf(fichero, "%s-%s-%s-%s-%d-%s",descuentos[j].id_cod,descuentos[j].descripcion,descuentos[j].tipo,descuentos[j].estado,descuentos[j].importe,descuentos[j].aplicabilidad);
+            if(j!=n_descuentos-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
+void EscribirDescuentosClientes(DescuentosClientes *descuentosclientes,int n_descuentosclientes){
+    FILE *fichero;
+	fichero=fopen("DescuentosClientes.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir DescuentosClientes.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_descuentosclientes){
+			fprintf(fichero, "%d-%s-%s-%s-%d",descuentosclientes[j].id_cliente,descuentosclientes[j].id_cod,descuentosclientes[j].fecha_asignacion,descuentosclientes[j].fecha_caducidad,descuentosclientes[j].estado);
+                if(j!=n_descuentosclientes-1){
+            fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void MostrarDescuentos(Descuentos* descuentos,int n_descuentos){
 
     int j=n_descuentos - 1;

@@ -2,6 +2,7 @@
 #define __PRODUCTOS_H__
 #include "adminprov.h"
 #include "categorias.h"
+#include "pedidos.h"
 
 typedef struct {
 	int id_prod;
@@ -17,6 +18,10 @@ typedef struct {
 //Precondicion: productos.txt existe y tiene datos
 //Postcondicion: guarda los datos de productos.txt en productos
 void LeerProductos(Productos*);
+
+void EscribirProductos(Productos *productos,int n_productos);
+
+void EscribirProductosPedidos(ProductosPedidos *,int);
 
 //cabecera:void MostrarProductos(Productos*,int,AdminProv*,int)
 //Precondicion: Productos y n_productos inicializados

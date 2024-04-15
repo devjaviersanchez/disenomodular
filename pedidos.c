@@ -39,6 +39,26 @@ void LeerPedidos(Pedidos* pedidos){
 	fclose(fichero);
 }
 
+void EscribirPedidos(Pedidos *pedidos,int n_pedidos){
+    FILE *fichero;
+	fichero=fopen("Pedidos.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir Pedidos.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_pedidos){
+			fprintf(fichero, "%d-%s-%d-%s-%s-%s",pedidos[j].id_pedido,pedidos[j].fecha_pedido,pedidos[j].id_cliente,pedidos[j].lugar,pedidos[j].id_locker,pedidos[j].id_cod);
+            if(j!=n_pedidos-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void LeerProductosPedidos(ProductosPedidos* productospedidos){
 
     FILE *fichero;
@@ -57,7 +77,7 @@ void LeerProductosPedidos(ProductosPedidos* productospedidos){
 			if (s[strlen(s) - 1] == '\n') s[strlen(s) - 1] = '\0';
 			tokens[0] = strtok(s, delim);
 
-			for ( i = 1; i < 9; i++) tokens[i] = strtok(NULL, delim);
+			for (i = 1; i < 9; i++) tokens[i] = strtok(NULL, delim);
 
 			productospedidos[j].id_pedido=entero(tokens[0]) ;
 			productospedidos[j].id_prod=entero(tokens[1]) ;

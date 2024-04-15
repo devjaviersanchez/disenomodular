@@ -41,6 +41,26 @@ void LeerClientes(Cliente *clientes){
 	fclose(fichero);
 }
 
+void EscribirClientes(Cliente* clientes ,int n_clientes){
+
+    FILE *fichero;
+	fichero=fopen("Clientes.txt","w");
+
+    if (fichero == NULL) puts("\nError al abrir Clientes.txt");
+	else {
+	    rewind(fichero);
+		int j=0;
+		while (j<n_clientes){
+			fprintf(fichero, "%d-%s-%s-%s-%s-%s-%s-%d", clientes[j].id_cliente, clientes[j].nomb_cliente, clientes[j].dir_cliente, clientes[j].localidad, clientes[j].provincia, clientes[j].email, clientes[j].contrasena,clientes[j].cartera);
+            if(j!=n_clientes-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void MostrarClientes(Cliente *clientes,int n_clientes){
 
 	int j=n_clientes - 1;

@@ -38,6 +38,48 @@ void LeerLockers(Lockers* lockers){
     fclose(fichero);
 }
 
+void EscribirLockers(Lockers *lockers,int n_lockers){
+
+    FILE *fichero;
+	fichero=fopen("Lockers.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir Lockers.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_lockers){
+			fprintf(fichero, "%s-%s-%s-%s-%d-%d",lockers[j].id_locker,lockers[j].localidad,lockers[j].provincia,lockers[j].ubicacion,lockers[j].num_comp,lockers[j].ocupados);
+            if(j!=n_lockers-1){
+            fputc('\n',fichero);
+            }
+			j++;
+    }
+    fclose(fichero);
+    }
+}
+
+void EscribirCompartimentosLockers(CompartimentosLockers *compartimentoslockers,int n_compartimentoslockers){
+    FILE *fichero;
+	fichero=fopen("CompartimentosLockers.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir CompartimentosLockers.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_compartimentoslockers){
+			fprintf(fichero, "%s-%d-%d-%s-%s-%s",compartimentoslockers[j].id_locker,compartimentoslockers[j].num_comp,compartimentoslockers[j].cod_locker,compartimentoslockers[j].estado,compartimentoslockers[j].fecha_asignacion,compartimentoslockers[j].fecha_caducidad);
+            if(j!=n_compartimentoslockers-1){
+            fputc('\n',fichero);
+            }
+			j++;
+    }
+    fclose(fichero);
+    }
+}
+
+
 void LeerCompartimentosLockers(CompartimentosLockers* compartimentoslockers){
 
     FILE *fichero;

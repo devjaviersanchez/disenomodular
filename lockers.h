@@ -24,6 +24,10 @@ typedef struct {
 //Postcondicion: guarda los datos de lockers.txt en lockers
 void LeerLockers(Lockers*);
 
+void EscribirLockers(Lockers *lockers,int n_lockers);
+
+void EscribirCompartimentosLockers(CompartimentosLockers *compartimentoslockers,int n_compartimentoslockers);
+
 //cabecera:void MostrarLockers(Lockers*,int)
 //Precondicion: lockers y n_lockers inicializados
 //Postcondicion: muestra los lockers

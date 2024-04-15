@@ -40,6 +40,26 @@ void LeerTransportistas(Transportista* transportista){
 	fclose(fichero);
 }
 
+void EscribirTransportistas(Transportista * transportista,int n_transportista){
+    FILE *fichero;
+	fichero=fopen("Transportistas.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir Transportistas.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_transportista){
+			fprintf(fichero, "%d-%s-%s-%s-%s-%s",transportista[j].id_transp,transportista[j].nombre,transportista[j].email,transportista[j].contrasena,transportista[j].nombre_empresa,transportista[j].nombre_ciudad);
+            if(j!=n_transportista-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void Listar_Transportitsta (Transportista* transportista, int posicion) {
 
     system("cls");

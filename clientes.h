@@ -17,6 +17,8 @@ typedef struct {
 //Postcondicion: guarda los datos de clientes.txt en clientes
 void LeerClientes(Cliente* );
 
+void EscribirClientes(Cliente* clientes ,int n_clientes);
+
 //cabecera:void EscribirClientes(Cliente*,int)
 //PrecondiciOn: clientes existe y tiene datos
 //PostcondiciOn: guarda los datos de clientes en clientes.txt

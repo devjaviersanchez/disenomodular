@@ -19,6 +19,7 @@ typedef struct {
 	int importe;
 	char estado[15];
 	int id_transp;
+	char id_locker[11];
 	int cod_locker;
 	char fecha_transportista[11];
 }ProductosPedidos;
@@ -27,6 +28,8 @@ typedef struct {
 //Precondicion: pedidos.txt existe y tiene datos
 //Postcondicion: guarda los datos de pedidos.txt en pedidos
 void LeerPedidos(Pedidos*);
+
+void EscribirPedidos(Pedidos *pedidos,int n_pedidos);
 
 //cabecera:void MostrarPedidos(Pedidos*,int,AdminProv*,int)
 //Precondicion: pedidos y n_pedidos inicializados

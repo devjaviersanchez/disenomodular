@@ -40,6 +40,46 @@ void LeerProductos(Productos* productos){
     fclose(fichero);
 }
 
+void EscribirProductos(Productos *productos,int n_productos){
+    FILE *fichero;
+	fichero=fopen("Productos.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir Productos.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_productos){
+			fprintf(fichero, "%d-%s-%d-%d-%d-%d-%d",productos[j].id_prod,productos[j].descripcion,productos[j].id_categoria,productos[j].id_gestor,productos[j].stock,productos[j].entrega,productos[j].importe);
+            if(j!=n_productos-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
+void EscribirProductosPedidos(ProductosPedidos *productospedidos,int n_productospedidos){
+    FILE *fichero;
+	fichero=fopen("ProductosPedidos.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir ProductosPedidos.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_productospedidos){
+			fprintf(fichero, "%d-%d-%d-%s-%d-%s-%d-%s-%d-%s",productospedidos[j].id_pedido,productospedidos[j].id_prod,productospedidos[j].num_unid,productospedidos[j].fecha_prevista,productospedidos[j].importe,productospedidos[j].estado,productospedidos[j].id_transp,productospedidos[j].id_locker,productospedidos[j].cod_locker, productospedidos[j].fecha_transportista);
+            if(j!=n_productospedidos-1){
+                fputc('\n',fichero);
+            }
+                j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void MostrarProductos(Productos *productos,int n_productos,AdminProv*adminprov,int posicion_vector){
 
     int j=n_productos-1;

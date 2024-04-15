@@ -16,6 +16,8 @@ typedef struct {
 //Postcondicion: guarda los datos de devolucioes.txt en devoluciones
 void LeerDevoluciones(Devoluciones*);
 
+void EscribirDevoluciones(Devoluciones *devoluciones,int n_devoluciones);
+
 //cabecera:void MostrarDevoluciones(Devoluciones*,int)
 //Precondicion: devoluciones y n_devoluciones inicializados
 //Postcondicion: muestra los devoluciones

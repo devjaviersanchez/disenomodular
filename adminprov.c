@@ -60,6 +60,27 @@ void LeerAdminProv(AdminProv * adminprov){
 	fclose(fichero);
 }
 
+void EscribirAdminProv(AdminProv * adminprov,int n_adminprov){
+    FILE *fichero;
+	fichero=fopen("Adminprov.txt","w");
+
+    if (fichero == NULL)
+		puts("\nError al abrir Adminprov.txt");
+	else
+	{
+        rewind(fichero);
+        int j=0;
+        while (j<n_adminprov){
+			fprintf(fichero, "%d-%s-%s-%s-%s",adminprov[j].id_empresa,adminprov[j].nombre,adminprov[j].email,adminprov[j].contrasena,adminprov[j].perfil);
+            if(j!=n_adminprov-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 int Buscar_AdminProv(AdminProv* adminyprov, int n_adminprov,int id, char* perfil) {
 
     int i,cont=0;

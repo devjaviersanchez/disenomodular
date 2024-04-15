@@ -38,6 +38,26 @@ void LeerDevoluciones(Devoluciones* devoluciones){
 	}
 }
 
+void EscribirDevoluciones(Devoluciones *devoluciones,int n_devoluciones){
+    FILE *fichero;
+	fichero=fopen("Devoluciones.txt","w");
+    if (fichero == NULL)
+		puts("\nError al abrir Devoluciones.txt");
+	else
+	{
+        rewind(fichero);
+		int j=0;
+		while (j<n_devoluciones){
+			fprintf(fichero, "%d-%d-%s-%s-%s-%s-%s",devoluciones[j].id_pedido,devoluciones[j].id_prod,devoluciones[j].fecha_devolucion,devoluciones[j].motivo,devoluciones[j].estado,devoluciones[j].fecha_aceptacion,devoluciones[j].fecha_caducidad);
+            if(j!=n_devoluciones-1){
+                fputc('\n',fichero);
+            }
+			j++;
+        }
+        fclose(fichero);
+    }
+}
+
 void MostrarDevoluciones(Devoluciones* devoluciones,int n_devoluciones){
 
     int j=n_devoluciones - 1;

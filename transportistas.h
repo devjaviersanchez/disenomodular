@@ -15,6 +15,8 @@ typedef struct {
 //Postcondicion: guarda los datos de transportistas.txt en transportistas
 void LeerTransportistas(Transportista*);
 
+void EscribirTransportistas(Transportista * transportista,int n_transportista);
+
 void Listar_Transportitsta (Transportista*, int);
 
 //cabecera:void EscribirTransportistas(Transportistas*,int)
